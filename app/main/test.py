@@ -121,14 +121,11 @@ async def extrair_imagens_link(estado, chave):
     try:
       response =  requests.request("GET", url_model, headers=headers, data=payload)    
       site = BeautifulSoup(response.text, "html.parser")
+      print(tag_video.get('poster'))
     except:
         pass
     tag_video = site.find('video')
-    if tag_video.get('poster') is None:
-        pass
-    print(tag_video.get('poster'))
-
-
+    
     #salvar imagem localmente
     diretorio_destino = 'D:\\temp\\test-palmas'
 
